@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Criar Conta | AgendaPro</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="glow-bg"></div>
+
+    <div class="signup-container">
+        <header class="signup-header">
+            <a href="/agendapro/" class="back-link"><i class="fas fa-chevron-left"></i> Voltar</a>
+            <div class="logo">Agenda<span>Pro</span></div>
+        </header>
+
+        <main class="signup-content">
+            <div class="form-card">
+                <div class="badge-beta">Fase Beta Gratuita</div>
+                <h2>Crie sua conta profissional</h2>
+                <p>Gerencie seu negócio com a tecnologia <strong>ANDROC</strong>. Acesso total liberado.</p>
+
+                <div id="msgContainer" class="msg-container"></div>
+
+                <form id="signupForm">
+                    <div class="input-group">
+                        <label for="businessName">Nome do Estabelecimento</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-store"></i>
+                            <input type="text" id="businessName" placeholder="Ex: Barbearia Elite" required>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="email">E-mail Profissional</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="email" placeholder="seu@email.com" required>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="whatsapp">WhatsApp para Contato</label>
+                        <div class="input-wrapper">
+                            <i class="fab fa-whatsapp"></i>
+                            <input type="tel" id="whatsapp" placeholder="(00) 00000-0000" required>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="password">Defina sua Senha</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="password" placeholder="Mínimo 6 caracteres" autocomplete="new-password" required>
+                            <button type="button" id="togglePass"><i class="fas fa-eye"></i></button>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Começar Agora <i class="fas fa-rocket"></i></button>
+                </form>
+
+                <p class="terms">O preço padrão de R$ 15,90 será aplicado apenas após o período Beta.</p>
+            </div>
+
+            <div class="login-footer">
+                Já tem uma conta? <a href="/agendapro/login">Entrar no Painel</a>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+* { box-sizing: border-box; font-family: 'Segoe UI', Roboto, sans-serif; }
+body { background-color: #f8fafc; padding: 20px; margin: 0; color: #334155; }
+
+.container { 
+    max-width: 550px; 
+    margin: 20px auto; 
+    background: white; 
+    padding: 35px; 
+    border-radius: 16px; 
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05); 
+}
+
+header { margin-bottom: 30px; }
+.header-content { display: flex; align-items: center; gap: 15px; margin-bottom: 5px; }
+.header-content h2 { margin: 0; font-size: 24px; color: #1e293b; }
+.btn-back { color: #64748b; text-decoration: none; font-size: 20px; transition: 0.2s; }
+.btn-back:hover { color: #3b82f6; }
+header p { margin: 0; color: #64748b; font-size: 14px; }
+
+.form-section { margin-bottom: 20px; }
+label { display: block; font-weight: 600; margin-bottom: 8px; font-size: 13px; color: #475569; text-transform: uppercase; letter-spacing: 0.5px; }
+label i { margin-right: 8px; color: #94a3b8; }
+
+input { 
+    width: 100%; 
+    padding: 13px 16px; 
+    border: 1.5px solid #e2e8f0; 
+    border-radius: 10px; 
+    font-size: 15px;
+    transition: all 0.2s;
+}
+input:focus { border-color: #3b82f6; outline: none; box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1); }
+
+.divisor { border: 0; border-top: 1px solid #f1f5f9; margin: 30px 0 10px 0; }
+.section-title { font-size: 12px; color: #1e293b; font-weight: 800; margin-bottom: 5px; }
+small { font-size: 12px; color: #94a3b8; display: block; margin-bottom: 15px; line-height: 1.4; }
+
+.btn-save { 
+    width: 100%; 
+    background: #22c55e; 
+    color: white; 
+    border: none; 
+    padding: 16px; 
+    border-radius: 10px; 
+    font-weight: 700; 
+    cursor: pointer; 
+    margin-top: 15px; 
+    font-size: 16px;
+    transition: 0.3s;
+}
+.btn-save:hover { background: #16a34a; transform: translateY(-1px); }
+
+.danger-zone { 
+    margin-top: 50px; 
+    padding: 25px; 
+    background: #fff1f2;
+    border-radius: 12px;
+    border: 1px solid #fecdd3; 
+}
+.danger-zone h3 { color: #e11d48; margin: 0 0 8px 0; font-size: 18px; }
+.danger-zone p { font-size: 13px; color: #9f1239; margin-bottom: 15px; }
+
+.btn-delete-account { 
+    background: transparent; 
+    color: #e11d48; 
+    border: 1.5px solid #e11d48; 
+    padding: 12px; 
+    border-radius: 8px; 
+    cursor: pointer; 
+    font-weight: 700; 
+    width: 100%; 
+    transition: 0.2s;
+}
+.btn-delete-account:hover { background: #e11d48; color: white; }

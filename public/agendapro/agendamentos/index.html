@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>AgendaPro - Gestão</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+
+<div class="app-shell">
+    <header class="app-header">
+        <div class="header-main">
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <a href="/agendapro/" class="btn-back-dash"><i class="fas fa-arrow-left"></i></a>
+                <h1 id="nomeLoja">Agenda<span>Pro</span></h1>
+            </div>
+            <div id="badge-total" class="count-badge">0</div>
+        </div>
+
+        <div class="date-filters">
+            <button class="btn-date active" onclick="filtrarData('hoje', this)">Hoje</button>
+            <button class="btn-date" onclick="filtrarData('todos', this)">Tudo</button>
+        </div>
+
+        <div class="staff-scroller">
+            <div id="listaFuncionarios" class="staff-list"></div>
+        </div>
+    </header>
+
+    <main class="app-content">
+        <div id="containerAgendamentos" class="cards-stack"></div>
+
+        <section class="stats-section">
+            <h3 class="section-title">Destaques do Mês</h3>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h4><i class="fas fa-user-star"></i> Top Profissionais</h4>
+                    <div id="statsFunc" class="stat-list"></div>
+                </div>
+                <div class="stat-card">
+                    <h4><i class="fas fa-fire"></i> Mais Vendidos</h4>
+                    <div id="statsServ" class="stat-list"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Equipe - AgendaPro</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+
+<div class="container">
+    <header class="section-header">
+        <h3><i class="fas fa-users"></i> Minha Equipe</h3>
+        <button class="btn-add" onclick="abrirModalFuncionario()">
+            <i class="fas fa-plus"></i> Novo Funcionário
+        </button>
+    </header>
+
+    <div id="listaFuncionarios" class="funcionarios-grid"></div>
+</div>
+
+<div id="modalFuncionario" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="fecharModal()">&times;</span>
+        <h3 id="modalTitle">Cadastrar Profissional</h3>
+        
+        <form id="formFuncionario">
+            <label>Foto do Profissional</label>
+            <input type="file" id="foto_func" accept="image/*">
+
+            <label>Nome do Profissional</label>
+            <input type="text" id="nome_func" required placeholder="Ex: André Correia">
+
+            <label>Atribuir Serviços (Especialidades)</label>
+            <div id="servicosParaAtribuir" class="servicos-check-group">
+                </div>
+
+            <label>Dias de Trabalho (Marque os dias que atende)</label>
+            <div id="diasTrabalho" class="servicos-check-group dias-grid">
+                <label class="check-item"><input type="checkbox" name="dia_sem" value="1" checked> <span>Seg</span></label>
+                <label class="check-item"><input type="checkbox" name="dia_sem" value="2" checked> <span>Ter</span></label>
+                <label class="check-item"><input type="checkbox" name="dia_sem" value="3" checked> <span>Qua</span></label>
+                <label class="check-item"><input type="checkbox" name="dia_sem" value="4" checked> <span>Qui</span></label>
+                <label class="check-item"><input type="checkbox" name="dia_sem" value="5" checked> <span>Sex</span></label>
+                <label class="check-item"><input type="checkbox" name="dia_sem" value="6" checked> <span>Sáb</span></label>
+                <label class="check-item"><input type="checkbox" name="dia_sem" value="0"> <span>Dom</span></label>
+            </div>
+
+            <div class="horarios-row">
+                <div>
+                    <label>Entrada</label>
+                    <select id="hora_abre" class="select-time" required></select>
+                </div>
+                <div>
+                    <label>Saída</label>
+                    <select id="hora_fecha" class="select-time" required></select>
+                </div>
+            </div>
+
+            <div class="horarios-row">
+                <div>
+                    <label>Início Almoço</label>
+                    <select id="almoco_inicio" class="select-time"></select>
+                </div>
+                <div>
+                    <label>Fim Almoço</label>
+                    <select id="almoco_fim" class="select-time"></select>
+                </div>
+            </div>
+
+            <button type="submit" class="btn-save">Salvar Alterações</button>
+        </form>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

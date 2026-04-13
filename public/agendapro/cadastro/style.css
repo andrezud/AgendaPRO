@@ -1,0 +1,102 @@
+:root {
+    --primary: #2563eb;
+    --dark: #0f172a;
+    --text: #475569;
+    --bg: #ffffff;
+    --input-bg: #f8fafc;
+    --error: #ef4444;
+    --success: #22c55e;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; -webkit-tap-highlight-color: transparent; }
+
+body { background-color: #fcfdfe; color: var(--text); min-height: 100dvh; overflow-x: hidden; }
+
+.glow-bg {
+    position: fixed; top: -10%; left: -10%; width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(37, 99, 235, 0.08) 0%, transparent 70%);
+    z-index: -1; filter: blur(60px);
+}
+
+.signup-container { min-height: 100dvh; display: flex; flex-direction: column; }
+
+.signup-header {
+    padding: 15px 6%;
+    display: flex; justify-content: space-between; align-items: center;
+    background: rgba(255,255,255,0.8); backdrop-filter: blur(10px);
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.back-link { text-decoration: none; color: #94a3b8; font-size: 0.85rem; font-weight: 700; display: flex; align-items: center; gap: 5px; }
+.logo { font-weight: 800; font-size: 1.2rem; color: var(--primary); letter-spacing: -1px; }
+.logo span { color: var(--dark); }
+
+.signup-content { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; }
+
+.form-card {
+    background: white;
+    width: 100%;
+    max-width: 420px;
+    padding: 40px 30px;
+    border-radius: 32px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.03);
+    border: 1px solid #f1f5f9;
+    text-align: center;
+}
+
+.badge-beta {
+    display: inline-block; background: #eff6ff; color: var(--primary);
+    padding: 6px 14px; border-radius: 50px; font-size: 0.7rem; font-weight: 800;
+    margin-bottom: 20px; text-transform: uppercase;
+}
+
+.form-card h2 { font-size: 1.5rem; color: var(--dark); font-weight: 800; letter-spacing: -0.5px; margin-bottom: 10px; }
+.form-card p { font-size: 0.9rem; color: #64748b; margin-bottom: 30px; }
+
+/* Mensagens */
+.msg-container { min-height: 20px; margin-bottom: 20px; }
+.msg { padding: 12px; border-radius: 12px; font-size: 0.85rem; font-weight: 600; animation: slideUp 0.3s ease; }
+.msg.error { background: #fef2f2; color: var(--error); border: 1px solid #fee2e2; }
+.msg.success { background: #f0fdf4; color: var(--success); border: 1px solid #dcfce7; }
+
+@keyframes slideUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Inputs Estilizados */
+.input-group { margin-bottom: 20px; text-align: left; }
+.input-group label { display: block; font-size: 0.75rem; font-weight: 700; margin-bottom: 8px; color: var(--dark); text-transform: uppercase; letter-spacing: 0.5px; }
+
+.input-wrapper { position: relative; display: flex; align-items: center; }
+.input-wrapper i { position: absolute; left: 16px; color: #94a3b8; font-size: 0.9rem; }
+.input-wrapper input {
+    width: 100%; padding: 14px 14px 14px 45px;
+    border: 1.5px solid #f1f5f9; border-radius: 14px;
+    font-size: 1rem; background: var(--input-bg); transition: 0.3s;
+}
+.input-wrapper input:focus {
+    outline: none; border-color: var(--primary); background: #fff;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.06);
+}
+
+#togglePass {
+    position: absolute; right: 12px; background: none; border: none;
+    color: #94a3b8; cursor: pointer; padding: 10px;
+}
+
+/* Botão */
+.btn-submit {
+    width: 100%; background: var(--primary); color: white;
+    padding: 18px; border: none; border-radius: 16px;
+    font-size: 1rem; font-weight: 800; cursor: pointer;
+    transition: 0.3s cubic-bezier(0.2, 0.8, 0.2, 1); margin-top: 10px;
+    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
+}
+.btn-submit:hover { transform: translateY(-2px); box-shadow: 0 15px 25px rgba(37, 99, 235, 0.3); }
+
+.terms { font-size: 0.75rem; margin-top: 25px; color: #94a3b8; line-height: 1.4; }
+.login-footer { margin-top: 30px; font-size: 0.9rem; font-weight: 500; }
+.login-footer a { color: var(--primary); text-decoration: none; font-weight: 700; }
+
+@media (max-width: 480px) {
+    .signup-content { padding: 15px; }
+    .form-card { padding: 35px 20px; border-radius: 24px; }
+}

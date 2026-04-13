@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Meus Serviços | AgendaPro</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+
+<header class="fixed-header">
+    <div class="shop-header">
+        <div class="header-top">
+            <a href="/agendapro/dashboard" class="btn-back-header"><i class="fas fa-chevron-left"></i></a>
+            <div class="header-info">
+                <h2 id="display_nome_loja">Minha Loja</h2>
+                <div class="status-badge" id="display_horario">
+                    <i class="far fa-clock"></i> Carregando horários...
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    <section class="servicos-section">
+        <div class="list-header">
+            <h3>Meus Serviços</h3>
+            <span id="contador">0</span>
+        </div>
+        <div id="listaServicos" class="servicos-grid">
+            </div>
+    </section>
+</div>
+
+<div id="modalLoja" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="fecharModal('modalLoja')">&times;</span>
+        <h3><i class="fas fa-cog"></i> Configurar Loja</h3>
+        <p class="modal-desc">Ajuste os detalhes e horários da sua vitrine.</p>
+        
+        <form id="formLoja">
+            <label>Foto/Logo da Loja</label>
+            <div class="loja-foto-upload">
+                <input type="file" id="foto_loja_input" accept="image/*" class="file-input">
+            </div>
+
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>Abre às</label>
+                    <select id="loja_abre" class="select-time" required></select>
+                </div>
+                <div class="form-group">
+                    <label>Fecha às</label>
+                    <select id="loja_fecha" class="select-time" required></select>
+                </div>
+            </div>
+
+            <label>Dias de Funcionamento</label>
+            <div class="dias-selecao">
+                <label class="dia-box"><input type="checkbox" name="dia" value="Seg"><span>Seg</span></label>
+                <label class="dia-box"><input type="checkbox" name="dia" value="Ter"><span>Ter</span></label>
+                <label class="dia-box"><input type="checkbox" name="dia" value="Qua"><span>Qua</span></label>
+                <label class="dia-box"><input type="checkbox" name="dia" value="Qui"><span>Qui</span></label>
+                <label class="dia-box"><input type="checkbox" name="dia" value="Sex"><span>Sex</span></label>
+                <label class="dia-box"><input type="checkbox" name="dia" value="Sáb"><span>Sáb</span></label>
+                <label class="dia-box"><input type="checkbox" name="dia" value="Dom"><span>Dom</span></label>
+            </div>
+
+            <div class="pause-section">
+                <label>Pausa / Almoço</label>
+                <div class="form-grid">
+                    <select id="loja_pausa_ini" class="select-time"></select>
+                    <select id="loja_pausa_fim" class="select-time"></select>
+                </div>
+            </div>
+
+            <button type="submit" class="btn-primary">Salvar Alterações</button>
+        </form>
+    </div>
+</div>
+
+<div id="modalServico" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="fecharModal('modalServico')">&times;</span>
+        <h3 id="tituloModalServico"><i class="fas fa-plus-circle"></i> Novo Serviço</h3>
+        
+        <form id="formServico">
+            <label>Nome do Serviço</label>
+            <input type="text" id="nome_servico" placeholder="Ex: Corte de Cabelo" required>
+            
+            <label>Descrição</label>
+            <input type="text" id="desc_servico" placeholder="Opcional">
+
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>Preço (R$)</label>
+                    <input type="number" step="0.01" id="preco_servico" required>
+                </div>
+                <div class="form-group">
+                    <label>Duração (minutos)</label>
+                    <input type="number" id="duracao_servico" placeholder="45" required>
+                </div>
+            </div>
+            
+            <label>Fotos (Máximo 2)</label>
+            <p id="aviso_fotos" class="aviso-erro"></p>
+            
+            <div id="preview_foto_container" class="preview-container-edit">
+                <div class="preview-imgs">
+                    <img id="preview_foto_1" src="" class="img-preview-edit">
+                    <img id="preview_foto_2" src="" class="img-preview-edit">
+                </div>
+            </div>
+            
+            <input type="file" id="fotos_servico" accept="image/*" multiple onchange="validarQuantidadeFotos(this)" class="file-input">
+            
+            <button type="submit" class="btn-primary">Gravar no Catálogo</button>
+        </form>
+    </div>
+</div>
+
+<nav class="bottom-nav">
+    <button class="nav-btn secondary" onclick="abrirModal('modalLoja')">
+        <i class="fas fa-store"></i>
+        <span>Loja</span>
+    </button>
+    <button class="nav-btn main" onclick="abrirModalNovoServico()">
+        <div class="plus-icon"><i class="fas fa-plus"></i></div>
+        <span>Add Serviço</span>
+    </button>
+    <button class="nav-btn secondary" onclick="location.reload()">
+        <i class="fas fa-sync"></i>
+        <span>Atualizar</span>
+    </button>
+</nav>
+
+<script src="script.js"></script>
+</body>
+</html>

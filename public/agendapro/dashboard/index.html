@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Dashboard | AgendaPro Performance</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+
+    <div id="overlay" class="overlay"></div>
+
+    <nav id="drawerMenu" class="drawer">
+        <div class="drawer-header">
+            <div class="logo">Agenda<span>Pro</span></div>
+            <button id="btnCloseMenu" class="btn-close"><i class="fas fa-times"></i></button>
+        </div>
+        
+        <div class="drawer-user">
+            <div class="user-avatar" id="userAvatar">-</div>
+            <div class="user-info">
+                <span id="userNameDisplay">Carregando...</span>
+                <small class="plan-badge">Plano Beta Grátis</small>
+            </div>
+        </div>
+
+        <ul class="menu-list">
+            <li><a href="#" class="active"><i class="fas fa-chart-line"></i> Dashboard</a></li>
+            <li class="menu-label">Gestão</li>
+            <li><a href="/agendapro/meus-servicos"><i class="fas fa-layer-group"></i> Meus Serviços</a></li>
+            <li><a href="/agendapro/agendamentos"><i class="fas fa-magic"></i> Agendamentos</a></li>
+            <li><a href="/agendapro/funcionarios"><i class="fas fa-user-tie"></i> Equipe e Níveis</a></li>
+            
+            <li class="menu-label">Configurações</li>
+            <li><a href="/agendapro/meu-plano"><i class="fas fa-crown"></i> Meu Plano</a></li>
+            <li><a href="/agendapro/minha-conta"><i class="fas fa-sliders"></i> Ajustes da Conta</a></li>
+            
+            <li><a href="#" id="btnLogout" class="logout"><i class="fas fa-power-off"></i> Sair da Conta</a></li>
+        </ul>
+    </nav>
+
+    <div class="main-content">
+        <header class="top-bar">
+            <div class="top-left">
+                <button id="btnOpenMenu" class="btn-menu"><i class="fas fa-bars-staggered"></i></button>
+                <div class="top-title">Visão Geral</div>
+            </div>
+            <div class="top-actions">
+                <div class="notif-dot" id="btnNotificacoes" style="cursor: pointer; position: relative;">
+                    <i class="far fa-bell"></i>
+                    <span id="badgeNotif" style="display: none; position: absolute; top: 0; right: 0; width: 10px; height: 10px; background: #ef4444; border-radius: 50%; border: 2px solid white;"></span>
+                </div>
+                <div class="profile-pic-small" id="userAvatarSmall">-</div>
+            </div>
+        </header>
+
+        <section class="welcome-header">
+            <div class="welcome-text">
+                <h1>Olá, <span id="userFirstName">...</span>! 👋</h1>
+                <p>Confira o desempenho do seu negócio hoje.</p>
+            </div>
+        </section>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon blue"><i class="fas fa-calendar-check"></i></div>
+                <div class="stat-data">
+                    <h3 id="totalAgendamentos">0</h3>
+                    <p>Agendamentos</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon green"><i class="fas fa-hand-holding-dollar"></i></div>
+                <div class="stat-data">
+                    <h3 id="faturamentoMensal">R$ 0</h3>
+                    <p>Faturamento Est.</p>
+                </div>
+            </div>
+        </div>
+
+        <section class="vitrine-area">
+            <div class="vitrine-card-premium">
+                <div class="vitrine-header">
+                    <div class="icon-circle"><i class="fas fa-rocket"></i></div>
+                    <div class="text">
+                        <h3>Sua Vitrine está Online</h3>
+                        <p>Compartilhe seu link para receber agendamentos.</p>
+                    </div>
+                </div>
+                
+                <div class="link-container">
+                    <input type="text" id="linkVitrine" readonly value="Carregando link...">
+                    <button onclick="copiarLink()" class="btn-copy">
+                        <i class="fas fa-copy"></i>
+                    </button>
+                </div>
+
+                <a id="btnVerVitrine" href="#" target="_blank" class="btn-preview-link">
+                    Visualizar minha página <i class="fas fa-external-link-alt"></i>
+                </a>
+            </div>
+        </section>
+
+        <section class="quick-actions">
+            <h2 class="section-label">Atalhos Rápidos</h2>
+            <div class="actions-grid">
+                <a href="/agendapro/meus-servicos" class="action-item">
+                    <i class="fas fa-plus-circle"></i>
+                    <span>Novo Serviço</span>
+                </a>
+                <a href="/agendapro/funcionarios" class="action-item">
+                    <i class="fas fa-user-plus"></i>
+                    <span>Add Equipe</span>
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

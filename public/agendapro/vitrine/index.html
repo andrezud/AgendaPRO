@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>AgendaPro - Agendamento Online</title>
+    <link rel="stylesheet" href="/agendapro/vitrine/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+
+<div class="vitrine-container" id="containerPrincipal" style="display: none;">
+    <header class="vitrine-header-premium">
+        <div class="banner-image" id="bannerLoja"></div>
+        <div class="banner-overlay"></div>
+        
+        <div class="header-content">
+            <div class="logo-wrapper">
+                <div class="logo-circle" id="logoLoja">
+                    <i class="fas fa-store"></i>
+                </div>
+            </div>
+            <h1 id="nomeLoja">...</h1>
+            <p id="subtituloLoja"><i class="fas fa-calendar-check"></i> Agende seu horário em segundos</p>
+        </div>
+    </header>
+
+    <div id="listaServicosVitrine" class="servicos-grid"></div>
+</div>
+
+<div id="modalDetalhesServico" class="modal">
+    <div class="modal-content">
+        <div class="modal-handle"></div>
+        <button class="modal-close-btn" onclick="fecharModalDetalhes()">&times;</button>
+        <div class="modal-body">
+            <div class="detalhes-fotos-container" id="detalhesFotos"></div>
+            <h2 id="detalhesNomeServico" style="margin-top:20px;"></h2>
+            <div class="price-tag" id="detalhesPrecoServico"></div>
+            <p id="detalhesDescricaoServico" class="descricao-texto"></p>
+            <button id="btnAgendarDoDetalhe" class="btn-agendar" style="margin-top:20px;">Agendar Agora</button>
+        </div>
+    </div>
+</div>
+
+<div id="modalAgendamento" class="modal">
+    <div class="modal-content">
+        <div class="modal-handle"></div>
+        <button class="modal-close-btn" onclick="fecharModal()">&times;</button>
+        
+        <div class="modal-body">
+            <div id="passo1">
+                <div class="modal-header-premium">
+                    <h2 id="servicoNome">Serviço</h2>
+                    <div class="price-tag" id="servicoDetalhes">R$ 0,00</div>
+                </div>
+
+                <div class="profile-selection-premium">
+                    <div id="fotoSelecaoProfissional" class="foto-perfil-quadrada">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                </div>
+
+                <div class="booking-config">
+                    <div class="input-card">
+                        <label><i class="fas fa-user-tie"></i> Profissional</label>
+                        <select id="selectProfissional" onchange="atualizarFotoEVerificar()">
+                            <option value="">Quem vai te atender?</option>
+                        </select>
+                    </div>
+
+                    <div class="input-card">
+                        <label><i class="fas fa-calendar-alt"></i> Data do Agendamento</label>
+                        <input type="date" id="inputData" onchange="verificarSelecao()">
+                    </div>
+                </div>
+            </div>
+
+            <div id="passo2" style="display:none;">
+                <div class="step-header">
+                    <button class="back-btn" onclick="irParaPasso(1)"><i class="fas fa-chevron-left"></i> Voltar</button>
+                    <h3>Horários Disponíveis</h3>
+                </div>
+                <div id="gridHorarios" class="horarios-grid-premium"></div>
+            </div>
+
+            <div id="passo3" style="display:none;">
+                <div class="step-header">
+                    <button class="back-btn" onclick="irParaPasso(2)"><i class="fas fa-chevron-left"></i> Voltar</button>
+                    <h3>Finalizar</h3>
+                </div>
+                
+                <div class="form-container">
+                    <div class="input-card">
+                        <label>Nome Completo</label>
+                        <input type="text" id="nomeCliente" placeholder="Digite seu nome">
+                    </div>
+                    <div class="input-card">
+                        <label>WhatsApp</label>
+                        <input type="tel" id="telCliente" placeholder="(00) 00000-0000">
+                    </div>
+
+                    <div class="summary-card" id="resumoFinal"></div>
+
+                    <button id="btnFinalizar" class="confirm-booking-btn" onclick="salvarAgendamento()">
+                        Confirmar Agendamento <i class="fas fa-check-circle" style="margin-left: 8px;"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/agendapro/vitrine/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Conta - AgendaPro</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="header-content">
+            <a href="/agendapro/dashboard" class="btn-back"><i class="fas fa-arrow-left"></i></a>
+            <h2>Minha Conta</h2>
+        </div>
+        <p>Gerencie suas informações de acesso e o link da sua vitrine.</p>
+    </header>
+
+    <form id="formConta">
+        <div class="form-section">
+            <label><i class="fas fa-store"></i> Nome do Negócio</label>
+            <input type="text" id="nome_conta" placeholder="Ex: Barbearia do Nobre" required>
+        </div>
+
+        <div class="form-section">
+            <label><i class="fas fa-link"></i> Seu Link Amigável (Slug)</label>
+            <input type="text" id="slug_preview" readonly style="background: #f9f9f9; color: #7f8c8d; cursor: not-allowed;">
+            <small>O link é atualizado automaticamente ao mudar o nome do negócio.</small>
+        </div>
+
+        <div class="form-section">
+            <label><i class="fas fa-envelope"></i> E-mail de Acesso</label>
+            <input type="email" id="email_conta" required>
+        </div>
+
+        <div class="form-section">
+            <label><i class="fab fa-whatsapp"></i> WhatsApp</label>
+            <input type="text" id="whatsapp_conta" placeholder="(00) 00000-0000">
+        </div>
+
+        <hr class="divisor">
+        <p class="section-title">SEGURANÇA</p>
+        <small>Preencha apenas se desejar alterar sua senha atual.</small>
+
+        <div class="form-section">
+            <label><i class="fas fa-lock-open"></i> Senha Atual</label>
+            <input type="password" id="senha_atual" placeholder="Confirme sua senha atual">
+        </div>
+
+        <div class="form-section">
+            <label><i class="fas fa-key"></i> Nova Senha</label>
+            <input type="password" id="nova_senha" placeholder="Mínimo 6 caracteres">
+        </div>
+
+        <div class="form-section">
+            <label><i class="fas fa-check-double"></i> Confirmar Nova Senha</label>
+            <input type="password" id="confirmar_nova_senha" placeholder="Repita a nova senha">
+        </div>
+
+        <button type="submit" class="btn-save">
+            <i class="fas fa-save"></i> Salvar Alterações
+        </button>
+    </form>
+
+    <div class="danger-zone">
+        <h3>Zona de Perigo</h3>
+        <p>A exclusão é permanente e apagará todos os seus serviços e agendamentos.</p>
+        <button onclick="excluirMinhaConta()" class="btn-delete-account">
+            <i class="fas fa-trash-alt"></i> Excluir Minha Conta Permanentemente
+        </button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

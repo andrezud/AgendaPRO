@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Entrar | AgendaPro</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="glow-bg"></div>
+
+    <div class="login-container">
+        <div class="login-card">
+            <header class="card-header">
+                <div class="logo">Agenda<span>Pro</span></div>
+                <h2>Bem-vindo de volta</h2>
+                <p>Acesse sua conta para gerenciar seus horários</p>
+            </header>
+
+            <div id="msgContainer" class="msg-container"></div>
+
+            <form id="loginForm">
+                <div class="input-group">
+                    <label for="email">E-mail</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="email" placeholder="seu@email.com" required>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <div class="label-row">
+                        <label for="password">Senha</label>
+                        <a href="#" class="forgot-pass">Esqueci a senha</a>
+                    </div>
+                    <div class="input-wrapper">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="password" placeholder="Sua senha" required>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-login">
+                    <span>Acessar Painel</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </form>
+
+            <footer class="login-footer">
+                Não tem uma conta? <a href="/agendapro/cadastro">Criar agora gratuitamente</a>
+            </footer>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
